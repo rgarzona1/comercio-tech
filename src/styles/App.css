@@ -1,0 +1,126 @@
+/* File: src/App.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    display: flex;
+    min-height: 100vh; 
+    width: 100%;
+}
+
+.contenido-general {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #cfcfcf;
+
+}
+
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 8px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+.opciones-crud {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
+    background-color: rgba(50, 53, 45, 0.158);
+}
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.opciones {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.busqueda{
+    margin-top: 20px;
+    gap: 10px;
+    background-color: rgba(50, 53, 45, 0.158);
+}
+
+.lista-productos {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+}
+
+.lista-productos h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #333;
+  text-align: center;
+}
+
+.lista-productos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-productos li {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.lista-productos li:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.lista-productos strong {
+  font-size: 1.2rem;
+  color: #0a4f70;
+}
+
+.lista-productos small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
