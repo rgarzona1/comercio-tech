@@ -4,20 +4,28 @@ import OpcionesCrud from './OpcionesCrud'
 import { useState } from 'react'
 import Buscador from './Buscador'
 import ProductoLista from './ProductoLista'
+import { Routes, Route } from 'react-router'
+import FormularioCrearProducto from './FormularioCrearProductos'
+
 
 function Layout() {
   const [busqueda, setBusqueda] = useState('')
 
   return (
-    <div className="contenedor">
-      <Sidebar />
-      <main className="contenido-general">
-      <OpcionesCrud />
-      <Buscador setBusqueda={setBusqueda} />
-      <ProductoLista busqueda={busqueda} />
-      </main>
-    </div>
+
+      <div className="contenedor">
+        <Sidebar />
+        <main className="contenido-general">
+          <OpcionesCrud />
+          <Buscador setBusqueda={setBusqueda} />
+          <Routes>
+            <Route path="/" element={<ProductoLista busqueda={busqueda} />} />
+            <Route path="/productos/crear" element={<FormularioCrearProducto />} />
+          </Routes>
+        </main>
+      </div>
   )
 }
 
 export default Layout
+

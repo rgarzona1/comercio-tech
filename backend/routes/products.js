@@ -11,4 +11,14 @@ router.get('/', async (req, res) => {
   res.json(productos)
 })
 
+// Crear un producto nuevo
+router.post('/', async (req, res) => {
+  try {
+    const nuevoProducto = new Product(req.body)
+    await nuevoProducto.save()
+    res.status(201).json(nuevoProducto)
+  } catch (error) {
+    res.status(500).json({ error: 'Error al crear producto' })
+  }
+})
 export default router
