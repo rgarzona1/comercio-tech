@@ -124,3 +124,55 @@ body {
   color: #555;
   font-size: 0.9rem;
 }
+
+/* Contenedor principal de la lista de clientes */
+.clientes-lista {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.clientes-lista h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Lista de clientes */
+.clientes-lista ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada cliente individual */
+.cliente-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.cliente-item:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.cliente-item strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #007BFF;
+}
+
+.cliente-item br {
+  margin-bottom: 0.5rem;
+}
+
+.cliente-item p {
+  margin: 0.2rem 0;
+}

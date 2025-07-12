@@ -5,7 +5,7 @@ function OpcionesCrud() {
     <section className="opciones-crud">
         <p>Administrar Base de Datos</p>
         <div className="productos">
-            <Link to="/productos/crear">
+            <Link to="/productos/crear">   
                 <button className="opciones">
                     <p className="texto-opciones-crud">CREAR</p>
                 </button>
