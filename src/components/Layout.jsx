@@ -7,6 +7,7 @@ import ProductoLista from './ProductoLista'
 import { Routes, Route } from 'react-router'
 import FormularioCrearProducto from './FormularioCrearProductos'
 import ClientesLista from './ClientesLista'
+import FormularioCrearCliente from './FormularioCrearCliente'
 
 
 function Layout() {
@@ -23,6 +24,7 @@ function Layout() {
             <Route path="/" element={<ProductoLista busqueda={busqueda} />} />
             <Route path="/productos/crear" element={<FormularioCrearProducto />} />
             <Route path='/clientes' element={<ClientesLista busqueda={busqueda}/>}/>
+            <Route path="/clientes/crear" element={<FormularioCrearCliente />} />
           </Routes>
         </main>
       </div>

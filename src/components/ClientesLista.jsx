@@ -32,7 +32,7 @@ function ClientesLista( { busqueda,  }) { // ClientesLista es un componente que 
               📧 {c.email}<br />
               📞 {c.telefono}<br />
               📍 {c.direccion}<br />
-              Pedidos: {c.pedidos.length}
+              Pedidos: {Array.isArray(c.pedidos) ? c.pedidos.join(' || ') : c.pedidos}
             </li>
           ))}
         </ul>
