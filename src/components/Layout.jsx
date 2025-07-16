@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-import OpcionesCrud from './OpcionesCrud'
+import OpcionesCrudProducto from './OpcionesCrudProducto'
+import OpcionesCrudClientes from './OpcionesCrudClientes'
 import { useState } from 'react'
 import Buscador from './Buscador'
 import ProductoLista from './ProductoLista'
@@ -11,23 +12,44 @@ import FormularioCrearCliente from './FormularioCrearCliente'
 
 
 function Layout() {
-  const [busqueda, setBusqueda] = useState('')
-
+  const [busqueda, setBusqueda]=useState('')
   return (
+    <div className="contenedor">
+      <Sidebar />
+      <main className='contenido-general'>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <OpcionesCrudProducto />
+                <Buscador setBusqueda={setBusqueda}/>
+                <ProductoLista busqueda={busqueda}/>
+              </>
+            }
+          />
+          <Route
+            path="/productos/crear"
+            element={<FormularioCrearProducto />}
+          />
 
-      <div className="contenedor">
-        <Sidebar />
-        <main className="contenido-general">
-          <OpcionesCrud />
-          <Buscador setBusqueda={setBusqueda} />
-          <Routes>
-            <Route path="/" element={<ProductoLista busqueda={busqueda} />} />
-            <Route path="/productos/crear" element={<FormularioCrearProducto />} />
-            <Route path='/clientes' element={<ClientesLista busqueda={busqueda}/>}/>
-            <Route path="/clientes/crear" element={<FormularioCrearCliente />} />
-          </Routes>
-        </main>
-      </div>
+          <Route
+            path="/clientes"
+            element={
+              <>
+                <OpcionesCrudClientes />
+                <Buscador setBusqueda={setBusqueda}/>
+                <ClientesLista busqueda={busqueda} />
+              </>
+            }
+          />
+          <Route
+            path="/clientes/crear"
+            element={<FormularioCrearCliente />}
+          />
+        </Routes>
+      </main>
+    </div>
   )
 }
 

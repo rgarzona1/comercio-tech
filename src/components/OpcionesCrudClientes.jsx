@@ -1,22 +1,19 @@
 import { Link } from "react-router"
 
-function OpcionesCrud() {
+function OpcionesCrudClientes() {
     return (        
     <section className="opciones-crud">
-        <p>Administrar Base de Datos</p>
+        <p>Administrar Clientes</p>
         <div className="productos">
-            <Link to="/productos/crear">   
+            <Link to="/clientes/crear">   
                 <button className="opciones">
                     <p className="texto-opciones-crud">CREAR</p>
                 </button>
             </Link>
 
-            <button className="opciones">
-                <p className="texto-opciones-crud">BUSCAR</p>
-            </button>
         </div>
     </section>
 )
 }
 
-export default OpcionesCrud;
+export default OpcionesCrudClientes;
