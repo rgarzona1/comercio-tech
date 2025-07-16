@@ -166,7 +166,7 @@ body {
 .cliente-item strong {
   display: block;
   font-size: 1.2rem;
-  color: #007BFF;
+  color: #0a4f70;
 }
 
 .cliente-item br {
@@ -176,3 +176,90 @@ body {
 .cliente-item p {
   margin: 0.2rem 0;
 }
+
+.form-crear {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-crear h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+.form-crear input,
+.form-crear textarea {
+  display: block;
+  width: 95%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-crear input:focus,
+.form-crear textarea:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+.form-crear button {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-crear button:hover {
+  background-color: #0056b3;
+}
+
+.form-crear button[type="button"] {
+  background-color: #6c757d;
+}
+
+.form-crear button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+.pedidos-lista {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.pedidos-lista ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pedido-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.pedido-item strong {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0a4f70;
+}
+

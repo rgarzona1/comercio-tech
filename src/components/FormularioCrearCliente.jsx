@@ -15,7 +15,7 @@ function FormularioCrearCliente(){
 
     const volver = useNavigate()
     const handleVolver = () => {
-        volver('/')
+        volver('/clientes')
     }
 
     const handleSubmit = async (e) => {
@@ -43,7 +43,7 @@ function FormularioCrearCliente(){
      }
 
     return (
-        <form onSubmit={handleSubmit} className='Formulario-Crear'>
+        <form onSubmit={handleSubmit} className='form-crear'>
         <h2>Crear Cliente</h2>
         <input  type="number" value={id} onChange={e=> setId(e.target.value)} placeholder='ID de cliente' required/>
         <input value={nombre} onChange={e => setNombre(e.target.value)} placeholder="Nombre" required />

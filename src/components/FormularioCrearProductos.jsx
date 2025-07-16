@@ -38,7 +38,7 @@ function FormularioCrearProducto() {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='form-crear'>
       <h2>Crear Producto</h2>
       <input value={sku} onChange={e => setSku(e.target.value)} placeholder="SKU" required />
       <input value={nombre} onChange={e => setNombre(e.target.value)} placeholder="Nombre" required />

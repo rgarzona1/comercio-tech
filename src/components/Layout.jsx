@@ -9,6 +9,8 @@ import { Routes, Route } from 'react-router'
 import FormularioCrearProducto from './FormularioCrearProductos'
 import ClientesLista from './ClientesLista'
 import FormularioCrearCliente from './FormularioCrearCliente'
+import OpcionesCrudPedidos from './OpcionesCrudPedidos'
+import PedidosLista from './PedidosLista'
 
 
 function Layout() {
@@ -19,7 +21,7 @@ function Layout() {
       <main className='contenido-general'>
         <Routes>
           <Route
-            path="/"
+            path="/productos"
             element={
               <>
                 <OpcionesCrudProducto />
@@ -46,6 +48,16 @@ function Layout() {
           <Route
             path="/clientes/crear"
             element={<FormularioCrearCliente />}
+          />
+          <Route
+            path='/pedidos'
+            element={
+              <>
+              <OpcionesCrudPedidos />
+              <Buscador setBusqueda={setBusqueda}/>
+              <PedidosLista  busqueda={busqueda}/>
+              </>
+            }
           />
         </Routes>
       </main>

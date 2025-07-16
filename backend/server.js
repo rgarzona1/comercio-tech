@@ -27,8 +27,9 @@ connect('mongodb://gestor_tienda:Digital_199%40@localhost:27017/ComercioTech?aut
 import productRoutes from './routes/products.js' // agrega ".js" si usas módulos ES6
 app.use('/products', productRoutes)
 import clientRoutes from './routes/clientes.js'
-
 app.use('/clientes', clientRoutes)
+import pedidoRoutes from './routes/pedidos.js'
+app.use('/pedidos', pedidoRoutes)
 
 //Iniciar servidor
 app.listen(3001, () => {
