@@ -8,7 +8,7 @@ const ClienteSchema = new Schema({
   email: String,
   telefono: String,
   direccion: String,
-  pedidos: Array 
+  pedidos: [String]
 })
 
-export default model('Client', ClienteSchema, 'clientes')
+export default model('Cliente', ClienteSchema, 'clientes')

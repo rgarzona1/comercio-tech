@@ -11,6 +11,7 @@ import ClientesLista from './ClientesLista'
 import FormularioCrearCliente from './FormularioCrearCliente'
 import OpcionesCrudPedidos from './OpcionesCrudPedidos'
 import PedidosLista from './PedidosLista'
+import FormularioCrearPedido from './FormularioCrearPedido'
 
 
 function Layout() {
@@ -58,6 +59,10 @@ function Layout() {
               <PedidosLista  busqueda={busqueda}/>
               </>
             }
+          />
+          <Route
+            path='pedidos/crear'
+            element={<FormularioCrearPedido />}
           />
         </Routes>
       </main>

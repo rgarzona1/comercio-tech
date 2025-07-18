@@ -23,7 +23,7 @@ function PedidosLista({busqueda}){
         <p>No hay pedidos registrados.</p>
       ) : (
         <ul>
-          {pedidos.map((p) => (
+          {pedidosFiltrados.map((p) => (
             <li key={p._id} className="pedido-item">
               <strong>ID Pedido:</strong> {p.id_pedido} <br />
               <strong>Cliente:</strong> {p.nombre_cliente} {p.apellido_cliente} <br />
