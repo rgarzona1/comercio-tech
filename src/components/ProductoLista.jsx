@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios' //axios es una librería para hacer peticiones HTTP
-import Buscador from './Buscador' // Importa el componente Buscador
+import { Link, useNavigate } from 'react-router-dom'
+
 
 function ProductoLista( { busqueda,  }) { // ProductoLista es un componente que recibe  busqueda 
   const [productos, setProductos] = useState([])  // productos es un estado que almacena la lista de productos, setProductos es la función para actualizar ese estado
+  const navigate = useNavigate()
 
 
   // Efecto para obtener la lista de productos
@@ -18,17 +20,32 @@ function ProductoLista( { busqueda,  }) { // ProductoLista es un componente que 
     p.nombre.toLowerCase().includes(busqueda.toLowerCase())
   )
 
+  const handleDelete = async (id) => {
+    if (window.confirm('¿Estás seguro?')) {
+      await axios.delete(`http://localhost:3001/products/${id}`)
+      // Refresca la lista después:
+      setProductos(productos.filter(p => p._id !== id))
+    }
+  }
+
   return (
   <div className="lista-productos">
     <ul>
       {productosFiltrados.map(p => (
-        <li key={p._id}>
+        <><li key={p._id}>
           <strong>{p.nombre}</strong><br />
           {p.descripcion}<br />
           <small>
             SKU: {p.sku} | Stock: {p.stock} | Precio: ${p.precio}
           </small>
+          <br />
+          <div className="acciones">
+                <button onClick={() => navigate(`/productos/editar/${p._id}`)}>Editar</button>
+                <button onClick={() => handleDelete(p._id)}>Eliminar</button>
+          </div>
         </li>
+        
+        </>
       ))}
     </ul>
   </div>

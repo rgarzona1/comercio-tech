@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios' //axios es una librería para hacer peticiones HTTP
-import Buscador from './Buscador' // Importa el componente Buscador
+import { useNavigate } from 'react-router-dom'
 
 function ClientesLista( { busqueda,  }) { // ClientesLista es un componente que recibe  busqueda 
   const [clientes, setClientes] = useState([])  // clientes es un estado que almacena la lista de productos, setProductos es la función para actualizar ese estado
-
+  const navigate = useNavigate()
 
   // Efecto para obtener la lista de clientes
   useEffect(() => {
@@ -18,6 +18,15 @@ function ClientesLista( { busqueda,  }) { // ClientesLista es un componente que 
     c.nombre.toLowerCase().includes(busqueda.toLowerCase())
   )
 
+  const handleDelete = async (id) => {
+    if (window.confirm('¿Estás seguro?')) {
+      await axios.delete(`http://localhost:3001/clientes/${id}`)
+      // Refresca la lista después:
+      setClientes(clientes.filter(c => c._id !== id))
+    }
+  }
+
+
   return (
     <div className="clientes-lista">
       <h2>Lista de Clientes</h2>
@@ -27,13 +36,21 @@ function ClientesLista( { busqueda,  }) { // ClientesLista es un componente que 
       ) : (
         <ul>
           {clientesFiltrados.map((c) => (
-            <li key={c._id} className="cliente-item">
+            <><li key={c._id} className="cliente-item">
               <strong>{c.nombre} {c.apellido}</strong><br />
               📧 {c.email}<br />
               📞 {c.telefono}<br />
               📍 {c.direccion}<br />
               Pedidos: {Array.isArray(c.pedidos) ? c.pedidos.join(' || ') : c.pedidos}
+              <br />
+              <br />
+              <div className="acciones">
+                <button onClick={() => navigate(`/clientes/editar/${c._id}`)}>Editar</button>
+                <button onClick={() => handleDelete(c._id)}>Eliminar</button>
+            </div>
             </li>
+
+          </>
           ))}
         </ul>
       )}

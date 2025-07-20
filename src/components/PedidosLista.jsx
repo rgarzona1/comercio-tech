@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios' 
-import Buscador from './Buscador' 
+import { useNavigate } from 'react-router-dom'
 
 function PedidosLista({busqueda}){
     const [pedidos, setPedidos]= useState([])
-
+    const navigate = useNavigate()
     useEffect(() => {
         axios.get('http://localhost:3001/pedidos')  //axios se comunica con el backend para obtener la lista de pedidos
         .then(res => setPedidos(res.data))  // res.data contiene la lista de clientes obtenida del backend
@@ -14,6 +14,25 @@ function PedidosLista({busqueda}){
     const pedidosFiltrados = pedidos.filter(c =>
     c.id_pedido.toLowerCase().includes(busqueda.toLowerCase())
   )
+    const fetchPedidos = async () => {
+    try {
+      const res = await axios.get('http://localhost:3001/pedidos')
+      setPedidos(res.data)
+    } catch (err) {
+      console.error('Error al obtener pedidos:', err)
+    }
+  }
+   const handleDelete = async (id) => {
+    if (window.confirm('¿Seguro que quieres eliminar este pedido?')) {
+      try {
+        await axios.delete(`http://localhost:3001/pedidos/${id}`)
+        alert('Pedido eliminado')
+        fetchPedidos()
+      } catch (err) {
+        console.error('Error al eliminar pedido:', err)
+      }
+    }
+  }
 
   return(
     <div className="pedidos-lista">
@@ -36,6 +55,11 @@ function PedidosLista({busqueda}){
                 ))}
               </ul>
               <strong>Precio Total:</strong> ${p.precio_total_pedido}
+              <br />
+              <div className="acciones">
+                <button onClick={() => navigate(`/pedidos/editar/${p._id}`)}>Editar</button>
+                <button onClick={() => handleDelete(p._id)}>Eliminar</button>
+              </div>
             </li>
           ))}
         </ul>

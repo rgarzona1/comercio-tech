@@ -19,4 +19,19 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Error al crear cliente' })
   }
 })
+
+// Editar
+router.put('/:id', async (req, res) => {
+  const { id } = req.params
+  const updated = await Client.findByIdAndUpdate(id, req.body, { new: true })
+  res.json(updated)
+})
+
+// Eliminar
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params
+  await Client.findByIdAndDelete(id)
+  res.json({ message: 'Cliente eliminado' })
+})
+
 export default router

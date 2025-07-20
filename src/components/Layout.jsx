@@ -12,6 +12,10 @@ import FormularioCrearCliente from './FormularioCrearCliente'
 import OpcionesCrudPedidos from './OpcionesCrudPedidos'
 import PedidosLista from './PedidosLista'
 import FormularioCrearPedido from './FormularioCrearPedido'
+import RutaInicial from './RutaInicial'
+import FormularioEditarProducto from './FormularioEditarProducto'
+import FormularioEditarCliente from './FormularioEditarCliente'
+import FormularioEditarPedidos from './FormularioEditarPedidos'
 
 
 function Layout() {
@@ -64,11 +68,16 @@ function Layout() {
             path='pedidos/crear'
             element={<FormularioCrearPedido />}
           />
+          <Route path="/productos/editar/:id" element={<FormularioEditarProducto />} />
+          <Route path="/clientes/editar/:id" element={<FormularioEditarCliente />} />
+          <Route path="/pedidos/editar/:id" element={<FormularioEditarPedidos />} />
         </Routes>
       </main>
     </div>
   )
 }
+
+
 
 export default Layout
 

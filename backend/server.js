@@ -30,6 +30,8 @@ import clientRoutes from './routes/clientes.js'
 app.use('/clientes', clientRoutes)
 import pedidoRoutes from './routes/pedidos.js'
 app.use('/pedidos', pedidoRoutes)
+import loginRoutes from './routes/login.js'
+app.use('/login', loginRoutes)
 
 //Iniciar servidor
 app.listen(3001, () => {

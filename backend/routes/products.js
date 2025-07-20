@@ -21,4 +21,25 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Error al crear producto' })
   }
 })
+
+// Editar
+router.put('/:id', async (req, res) => {
+  try {
+    const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.json(updated)
+  } catch (error) {
+    res.status(500).json({ error: 'Error al actualizar producto' })
+  }
+})
+
+// Eliminar
+router.delete('/:id', async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(req.params.id)
+    res.status(200).json({ message: 'Producto eliminado' })
+  } catch (error) {
+    res.status(500).json({ error: 'Error al eliminar producto' })
+  }
+})
+
 export default router
