@@ -1,4 +1,4 @@
-# 📦 ComercioTech — Gestor CRUD de Productos, Clientes y Pedidos
+#  ComercioTech — Gestor CRUD de Productos, Clientes y Pedidos
 
 **Autores:**  
 - Rodrigo Martínez  
@@ -14,7 +14,7 @@ Permite **crear, leer, actualizar y eliminar** información de **productos**, **
 
 ---
 
-## ⚙Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **Frontend:** React, HTML, CSS, JavaScript
 - **Backend:** Node.js, Express.js
